@@ -7,7 +7,7 @@ services:
     ports:
       - 80:8080 # Port Mapping dari port 8080 (container) ke port 80 (host)
     environment:
-      MONGO_URI: mongodb://db:27017/ # Menghubungkan service item-app (aplikasi) dengan item-db (database) melalui port 27017 (port mongo-db)
+      MONGO_URI: mongodb://item-db:27017/ # Menghubungkan service item-app (aplikasi) dengan item-db (database) melalui port 27017 (port mongo-db)
     depends_on:
       - item-db # Memastikan item-db telah berjalan sebelum memulai aplikasi
     restart: always # Container akan otomatis restart ketika terhenti
@@ -18,6 +18,7 @@ services:
       - "27017:27017" # Port Mapping dari port 27017 (container) ke port 27017 (host)
     volumes:
       - app-db:/data/db # Menggunakan volume app-db untuk menyimpan data
+    restart: always # Container akan otomatis restart ketika terhenti
 
 # Membuat volume app-db
 volumes:
