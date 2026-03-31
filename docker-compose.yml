@@ -9,7 +9,7 @@ services:
     environment:
       MONGO_URI: mongodb://db:27017/ # Menghubungkan service item-app (aplikasi) dengan item-db (database) melalui port 27017 (port mongo-db)
     depends_on:
-      - mongo-db # Memastikan mongo-db telah berjalan sebelum memulai aplikasi
+      - item-db # Memastikan item-db telah berjalan sebelum memulai aplikasi
     restart: always # Container akan otomatis restart ketika terhenti
 
   item-db: # Service item-db
